@@ -14,6 +14,10 @@ divisor resb 1
 quotient resb 1
 remainder resb 1
 
+section .text
+
+global _start
+
 %macro RW 4
 mov eax,%1
 mov ebx,%2
@@ -22,8 +26,6 @@ mov edx,%4
 int 80h
 %endmacro
 
-section .text
-global _start
 _start:
 
 RW 4,1,msg,msglen
